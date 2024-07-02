@@ -1,3 +1,6 @@
+# React Tic Tac Toe
+
+A modern Tic Tac Toe game built with React, featuring FontAwesome icons, dynamic styling, and a reset functionality.
 
 ### Shell Script to Create Repository and Add README
 
@@ -62,7 +65,7 @@ react-tic-tac-toe/
 ├── README.md
 ├── package.json
 \`\`\`
-
+sh
 ## Dependencies
 
 - React
