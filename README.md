@@ -1,7 +1,7 @@
 
 ### Shell Script to Create Repository and Add README
 
-```sh
+
 # Create a new directory for the project
 mkdir react-tic-tac-toe
 cd react-tic-tac-toe
