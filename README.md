@@ -46,8 +46,8 @@ A modern Tic Tac Toe game built with React, featuring FontAwesome icons, dynamic
 2. Open your browser and go to \`http://localhost:3000\` to see the Tic Tac Toe game in action.
 
 ## File Structure
-
-
+```sh
+\`\`\`sh
 react-tic-tac-toe/
 ├── public/
 ├── src/
@@ -61,7 +61,7 @@ react-tic-tac-toe/
 │   ├── index.js
 ├── README.md
 ├── package.json
-
+\`\`\`
 
 ## Dependencies
 
