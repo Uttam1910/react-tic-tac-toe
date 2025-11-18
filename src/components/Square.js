@@ -3,7 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes, faCircle } from '@fortawesome/free-solid-svg-icons';
 import './Square.css';
 
-function Square({ value, onClick }) {
+function Square({ value, onClick, isWinner, disabled }) {
   const renderIcon = () => {
     if (value === 'X') {
       return <FontAwesomeIcon icon={faTimes} />;
@@ -14,7 +14,11 @@ function Square({ value, onClick }) {
   };
 
   return (
-    <button className="square" onClick={onClick}>
+    <button 
+      className={`square ${isWinner ? 'winner' : ''} ${disabled ? 'disabled' : ''}`}
+      onClick={onClick}
+      disabled={disabled || value !== null}
+    >
       {renderIcon()}
     </button>
   );

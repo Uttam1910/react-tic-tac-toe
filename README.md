@@ -1,70 +1,228 @@
-# Getting Started with Create React App
+# 🎮 Tic Tac Toe Pro v2.0
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+A modern, feature-rich Tic Tac Toe game built with React featuring AI opponents, responsive design, and a beautiful UI.
 
-## Available Scripts
+## ✨ Features
 
-In the project directory, you can run:
+- **🎯 Two Game Modes**
+  - Player vs Player (PvP)
+  - Player vs AI
 
-### `npm start`
+- **🤖 AI Difficulty Levels**
+  - Easy: Random moves
+  - Medium: Smart decisions with some randomness
+  - Hard: Unbeatable AI using minimax algorithm
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **📊 Score Tracking**
+  - Persistent score storage using localStorage
+  - Track wins, draws, and losses
+  - Reset scores anytime
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **🌙 Dark/Light Theme**
+  - Toggle between themes
+  - Theme preference saved automatically
+  - Smooth transitions
 
-### `npm test`
+- **📱 Responsive Design**
+  - Works perfectly on desktop, tablet, and mobile
+  - Touch-friendly interface
+  - Optimized for all screen sizes
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **🎨 Modern UI/UX**
+  - Smooth animations and transitions
+  - Professional gradient backgrounds
+  - Glassmorphism effects
+  - Hover interactions and visual feedback
+  - Winner highlighting with animations
 
-### `npm run build`
+- **⚡ Performance**
+  - Optimized rendering
+  - Smart AI algorithm with caching
+  - Minimal re-renders
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🚀 Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
+- Node.js (v14 or higher)
+- npm or yarn
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Installation
 
-### `npm run eject`
+1. **Navigate to the project**
+```bash
+cd tic-tac-toe
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+2. **Install dependencies**
+```bash
+npm install
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+3. **Start the development server**
+```bash
+npm start
+```
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+The app will automatically open in your browser at `http://localhost:3000`
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## 🎮 How to Play
 
-## Learn More
+1. **Select Game Mode**
+   - Choose between "2 Players" or "vs AI"
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+2. **Choose Difficulty (AI mode only)**
+   - Easy: Perfect for learning
+   - Medium: A good challenge
+   - Hard: Nearly unbeatable
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+3. **Play**
+   - Click any empty square to make your move
+   - Player X goes first
+   - The status bar shows whose turn it is
 
-### Code Splitting
+4. **Win Conditions**
+   - Get three of your symbols in a row (horizontal, vertical, or diagonal)
+   - The winning squares highlight with animation
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+5. **Score Tracking**
+   - Your scores update automatically
+   - Scores persist across sessions
+   - Click "Reset Scores" to clear them
 
-### Analyzing the Bundle Size
+## 🌐 Browser Support
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
 
-### Making a Progressive Web App
+## 🛠️ Technologies Used
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+- **React 18.3**: UI framework
+- **CSS3**: Modern styling with animations
+- **FontAwesome**: Icon library
+- **Local Storage API**: Data persistence
+- **Minimax Algorithm**: AI implementation
 
-### Advanced Configuration
+## 📁 Project Structure
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+src/
+├── App.js                 # Main app component with theme and score tracking
+├── App.css               # App styling
+├── components/
+│   ├── Board.js         # Game board logic and AI implementation
+│   ├── Board.css        # Board styling
+│   ├── Square.js        # Individual square component
+│   └── Square.css       # Square styling
+├── index.js             # Entry point
+└── index.css            # Global styles
 
-### Deployment
+public/
+├── index.html           # HTML template
+└── manifest.json        # PWA manifest
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+## 🎯 Game Logic
 
-### `npm run build` fails to minify
+### Winner Detection
+- Checks 8 possible winning lines
+- Highlights winning squares
+- Detects draw conditions
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### AI Algorithm
+- **Easy**: Randomly selects from available squares
+- **Medium**: Uses minimax algorithm with 70% probability, falls back to random 30% of the time
+- **Hard**: Pure minimax algorithm - evaluates all possible future states to find the optimal move
+
+### Minimax Scoring
+- AI victory: +10
+- Player victory: -10
+- Draw: 0
+- Depth-based adjustments: Prefers faster wins and slower losses
+
+## 💾 Data Persistence
+
+The app uses browser localStorage to save:
+- **Scores**: X wins, O wins, draws
+- **Theme preference**: Light or dark mode
+
+Data is automatically loaded on app start and saved on every game end.
+
+## 🎨 Customization
+
+### Colors
+Edit the CSS variables in `src/index.css`:
+```css
+:root {
+  --primary-color: #6366f1;
+  --secondary-color: #ec4899;
+  --accent-color: #14b8a6;
+  /* ... more variables ... */
+}
+```
+
+### AI Behavior
+Modify difficulty logic in `src/components/Board.js`:
+- Adjust minimax depth for performance
+- Change probability weights in medium difficulty
+- Add new difficulty levels
+
+## 📦 Build for Production
+
+```bash
+npm run build
+```
+
+Creates an optimized production build in the `build` folder.
+
+## 🤝 Contributing
+
+Feel free to fork, modify, and improve this project!
+
+## 📝 Version History
+
+### v2.0 (Current)
+- Complete UI overhaul with modern design
+- AI opponent with multiple difficulty levels
+- Score tracking system
+- Dark/Light theme toggle
+- Responsive design
+- Enhanced animations
+
+### v0.1
+- Basic 2-player game
+- Simple UI
+
+## 📄 License
+
+This project is open source and available under the MIT License.
+
+## 🙏 Credits
+
+- Built with React
+- Icons by FontAwesome
+- Design inspired by modern web applications
+
+## 🐛 Known Issues
+
+None currently reported. Please create an issue if you find one!
+
+## 🚀 Future Enhancements
+
+- [ ] Sound effects
+- [ ] Online multiplayer
+- [ ] Game replay/history
+- [ ] Achievements and badges
+- [ ] Player names and avatars
+- [ ] Statistics and analytics dashboard
+- [ ] Elo rating system
+- [ ] Mobile app version
+
+## 📞 Contact
+
+For questions or suggestions, feel free to reach out!
+
+---
+
+**Enjoy the game! 🎉**

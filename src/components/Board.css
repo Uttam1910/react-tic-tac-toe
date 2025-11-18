@@ -1,47 +1,245 @@
 .board-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background-color: #222;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  padding: 40px;
+  border-radius: 24px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  max-width: 600px;
+  width: 100%;
+  animation: slideIn 0.5s ease;
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
   }
-  
-  .board {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
+  to {
+    opacity: 1;
+    transform: translateY(0);
   }
-  
-  .board-row {
-    display: flex;
-    gap: 10px;
+}
+
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 30px;
+}
+
+.board-row {
+  display: flex;
+  gap: 12px;
+}
+
+.status {
+  margin-bottom: 20px;
+  font-size: clamp(18px, 4vw, 24px);
+  font-weight: 700;
+  color: #667eea;
+  text-align: center;
+  letter-spacing: -0.5px;
+  min-height: 32px;
+}
+
+.status.winner {
+  color: #ec4899;
+  animation: bounce 0.6s ease;
+}
+
+.status.draw {
+  color: #14b8a6;
+}
+
+@keyframes bounce {
+  0%, 100% {
+    transform: scale(1);
   }
-  
-  .status {
-    margin-bottom: 20px;
-    font-size: 24px;
-    font-weight: bold;
-    color: #fff;
+  50% {
+    transform: scale(1.1);
   }
-  
-  .reset-button {
-    margin-top: 20px;
-    padding: 10px 20px;
-    font-size: 16px;
-    background-color: #48f;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s, transform 0.3s;
+}
+
+.game-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  width: 100%;
+  margin-top: 20px;
+}
+
+.control-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.control-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #475569;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  min-width: 80px;
+}
+
+.game-mode-buttons {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.mode-btn {
+  flex: 1;
+  padding: 10px 16px;
+  font-size: 13px;
+  font-weight: 600;
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.mode-btn.active {
+  background: #667eea;
+  color: #fff;
+  border-color: #667eea;
+}
+
+.mode-btn:hover {
+  border-color: #667eea;
+  background: #f1f5f9;
+}
+
+.mode-btn.active:hover {
+  background: #5568d3;
+}
+
+.difficulty-buttons {
+  display: flex;
+  gap: 8px;
+  flex: 1;
+}
+
+.diff-btn {
+  flex: 1;
+  padding: 10px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 2px solid #e2e8f0;
+  background: #f8fafc;
+  color: #475569;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.diff-btn.active {
+  background: #ec4899;
+  color: #fff;
+  border-color: #ec4899;
+}
+
+.diff-btn:hover {
+  border-color: #ec4899;
+}
+
+.diff-btn.active:hover {
+  background: #db2777;
+}
+
+.reset-button {
+  width: 100%;
+  padding: 14px 28px;
+  font-size: 16px;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+}
+
+.reset-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 30px rgba(102, 126, 234, 0.5);
+}
+
+.reset-button:active {
+  transform: translateY(-1px);
+}
+
+.winner-animation {
+  animation: winnerPop 0.6s ease;
+}
+
+@keyframes winnerPop {
+  0% {
+    opacity: 0;
+    transform: scale(0.8);
   }
-  
-  .reset-button:hover {
-    background-color: #357ae8;
+  50% {
     transform: scale(1.05);
   }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 600px) {
+  .board-container {
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .board {
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .board-row {
+    gap: 10px;
+  }
+
+  .status {
+    margin-bottom: 16px;
+    font-size: 18px;
+  }
+
+  .game-controls {
+    gap: 12px;
+  }
+
+  .reset-button {
+    padding: 12px 24px;
+    font-size: 14px;
+  }
+
+  .control-group {
+    flex-direction: column;
+  }
+
+  .control-label {
+    margin-bottom: 8px;
+  }
+
+  .game-mode-buttons,
+  .difficulty-buttons {
+    width: 100%;
+  }
+}
   
